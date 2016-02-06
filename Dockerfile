@@ -1,2 +1,2 @@
 # origin-metrics-heapster
-FROM openshift/origin-docker-registry:v1.1.1.1
+FROM openshift/origin-pod:v1.1.1.1
