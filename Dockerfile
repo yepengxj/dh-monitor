@@ -1,2 +1,2 @@
 # origin-metrics-heapster
-FROM openshift/origin-logging-fluentd
+FROM jupyter/all-spark-notebook
