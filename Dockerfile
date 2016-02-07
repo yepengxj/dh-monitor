@@ -1,2 +1,2 @@
 # origin-metrics-heapster
-FROM openshift/origin-logging-kibana
+FROM openshift/origin-logging-elasticsearch
