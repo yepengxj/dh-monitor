@@ -1,2 +1,2 @@
 # origin-metrics-heapster
-FROM openshift/origin-logging-deployment
+FROM openshift/origin-logging-auth-proxy
