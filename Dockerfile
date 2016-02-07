@@ -1,2 +1,2 @@
 # origin-metrics-heapster
-FROM openshift/origin-logging-elasticsearch
+FROM openshift/origin-logging-fluentd
