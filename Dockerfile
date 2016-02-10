@@ -1,2 +1,2 @@
 # origin-metrics-heapster
-FROM jupyter/all-spark-notebook
+FROM openshift/origin-docker-builder:v1.1.1.1
