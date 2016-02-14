@@ -1,2 +1,2 @@
 # origin-metrics-heapster
-FROM google/cadvisor
+FROM nginx
