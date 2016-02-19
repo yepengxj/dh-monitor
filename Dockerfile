@@ -1,2 +1,2 @@
 # origin-metrics-heapster
-FROM  mongo
+FROM  progrium/consul
