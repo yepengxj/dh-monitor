@@ -209,4 +209,4 @@ def get_container_summ_tasks(view):
 #    return jsonify({'data': image_list })
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host=0.0.0.0:5000,debug=True)
