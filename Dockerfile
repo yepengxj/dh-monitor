@@ -1,1 +1,1 @@
-FROM python:2.7-onbuild
+FROM index.alauda.cn/asiainfoldp/flask
