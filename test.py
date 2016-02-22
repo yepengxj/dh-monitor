@@ -66,7 +66,7 @@ if __name__ == '__main__':
     print(con_image_list)
     print(con_status_list)
 
-    base_url = '54.223.58.0:8500'
+    base_url = ''
     conn1 = httplib.HTTPConnection( base_url )
     conn1.request('GET', '/v1/catalog/services')
     resp=conn1.getresponse()
