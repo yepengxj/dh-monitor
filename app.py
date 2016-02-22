@@ -92,7 +92,7 @@ def send_codebase(path):
 
 @app.route('/sysinfo/api/v1.0/consul_<view>', methods=['GET'])
 def get_tasks(view):
-    base_url = '54.223.58.0:8500'
+    base_url = os.environ["consul_url"]
     conn1 = httplib.HTTPConnection( base_url )
     conn1.request('GET', '/v1/catalog/services')
     resp=conn1.getresponse()
