@@ -148,13 +148,10 @@
                function dh_monitor()
                {
                    req = GetRequest(); 
+                   setTimeout('doOnLoad()',0);
                    if(req != null) 
                    {
-                       setInterval('doOnLoad()',5000);
-                   }
-                   else
-                   {
-                       setTimeout('doOnLoad()',0);
+                       setInterval('window.location.reload()',5000);
                    }
                }
 
