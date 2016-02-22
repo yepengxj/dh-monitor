@@ -22,6 +22,25 @@
         </style>
         <script>
                 var myLayout, myGrid, myDataview, myConsulGrid;
+
+                function GetRequest() { 
+                    var url = location.search; //获取url中"?"符后的字串 
+                    var theRequest = new Object(); 
+                    if (url.indexOf("?") != -1) { 
+                        var str = url.substr(1); 
+                        strs = str.split("&"); 
+                        for(var i = 0; i < strs.length; i ++) { 
+                            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+                        } 
+                     }  
+                     else
+                     {
+                        theRequest = null
+                     }
+
+                     return theRequest; 
+                } 
+
                 function doOnLoad() {
                         myLayout = new dhtmlXLayoutObject({
                                 parent: document.body,
@@ -35,8 +54,8 @@
 		        //myLayout.cells("b").fixSize(true, true);
 
                         mySummerygrid = myLayout.cells("a").attachGrid();
-                        mySummerygrid.setHeader("UP,Exited,Dead,Create,Restart");
-                        mySummerygrid.setColumnIds("Up,Exited,Dead,Create,Restart");
+                        mySummerygrid.setHeader("UP,Exited,Dead,Created,Restart");
+                        mySummerygrid.setColumnIds("Up,Exited,Dead,Created,Restart");
                         mySummerygrid.setColSorting("str,str,str,str,str");
                         mySummerygrid.setColTypes("ed,ed,ed,ed,ed");
                         mySummerygrid.setInitWidths("*,*,*,*,*");
@@ -49,7 +68,6 @@
                         mySummerygrid.load("sysinfo/api/v1.0/container_summ",
                                 function(){
                                       //alert("Data has been loaded.")
-                                      alert("exited"+mySummerygrid.cells(1,1).getValue() + "Dead" + mySummerygrid.cells(1,2).getValue() + "Create" + mySummerygrid.cells(1,3).getValue() )
                                       if(mySummerygrid.cells(1,1).getValue() != "")
                                       {
 				          mySummerygrid.cells(1,1).setBgColor('red'); 
@@ -119,16 +137,18 @@
                         myConsulGrid.init();
                         myConsulGrid.load("/sysinfo/api/v1.0/consul_detail","js")
                         
+                        //console.log("test");
                 }
+
                 function getConsulDetail(id, ev, html)
                 {
                     alert("id:"+ id)
                 }
                 
-                function dh_monitor()
-                {
-                   req = GetRequest();
-                   if(req != null)
+               function dh_monitor()
+               {
+                   req = GetRequest(); 
+                   if(req != null) 
                    {
                        setInterval('doOnLoad()',5000);
                    }
@@ -136,27 +156,9 @@
                    {
                        setTimeout('doOnLoad()',0);
                    }
-                }
-                
-                function GetRequest() {
-                    var url = location.search; 
-                    var theRequest = new Object();
-                    if (url.indexOf("?") != -1) {
-                        var str = url.substr(1);
-                        strs = str.split("&");
-                        for(var i = 0; i < strs.length; i ++) {
-                            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
-                        }
-                     }
-                     else
-                     {
-                        theRequest = null
-                     }
+               }
 
-                     return theRequest;
-                }
-                
-                dh_monitor();
+               dh_monitor(); 
         </script>
 </head>
 
